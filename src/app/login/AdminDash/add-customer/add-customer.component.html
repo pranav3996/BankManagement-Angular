@@ -1,0 +1,555 @@
+<div style="padding-right:15px;" class="container-fluid">
+
+  <!-- form header -->
+  <div class="row">
+    <div class="col">
+      <h1>Add Customer Forms</h1>
+      <hr>
+    </div>
+  </div>
+
+  
+  <!-- main form -->
+  <div class="row">
+    <form  #myForm="ngForm" > 
+       
+      <div class="col">
+
+        <!-- personal info -->
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="fnText">First Name</label>
+              <input type="text"  id="fnText" placeholder="Enter first name"  
+                pattern="[A-Z]{1}[a-z]*" 
+                #fName="ngModel" [(ngModel)]="firstName" [ngModelOptions]="{standalone: true}"
+                [ngClass]="{'form-control': true, 
+                'is-invalid': !fName?.valid && fName?.touched,
+                'is-valid': fName?.valid && fName?.touched}"               
+                required
+                minlength="3" >
+                <!-- [(ngModel)]="customer.firstName"  -->
+                <small id="fnHelp" 
+                *ngIf="!fName?.valid && fName?.touched" 
+                class="form-text custom-invalid-feedback">Field is can't be empty</small>
+                <small id="fnHelp" 
+                *ngIf="fName?.errors?.['minlength'] && fName?.touched" 
+                class="form-text custom-invalid-feedback">First Name requires atleast 3 characters.</small> 
+
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="fnText">Middle Name</label>
+              <input type="text"  id="fnText" placeholder="Enter Middle name"
+               pattern="[A-Z]{1}[a-z]*" 
+                #mName="ngModel" [(ngModel)]="middleName" [ngModelOptions]="{standalone: true}"
+                [ngClass]="{'form-control': true, 
+                'is-invalid': !mName?.valid && mName?.touched,
+                'is-valid': mName?.valid && mName?.touched}"               
+                required
+                minlength="3">
+                <!-- [(ngModel)]="customer.middleName"  -->
+                <small id="fnHelp" 
+                *ngIf="!mName?.valid && mName?.touched" 
+                class="form-text custom-invalid-feedback">Field is can't be empty</small>
+                <small id="fnHelp" 
+                *ngIf="mName?.errors?.['minlength'] && mName?.touched" 
+                class="form-text custom-invalid-feedback">Middle Name requires atleast 3 characters.</small> 
+
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="fnText">Last Name</label>
+              <input type="text"  id="fnText" placeholder="Enter Last name" 
+                pattern="[A-Z]{1}[a-z]*" 
+                #lName="ngModel"
+                [ngClass]="{'form-control': true, 
+                'is-invalid': !lName?.valid && lName?.touched,
+                'is-valid': lName?.valid && lName?.touched}"               
+                required [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}"
+                minlength="3">
+                <!-- [(ngModel)]="customer.lastName" -->
+                <small id="fnHelp" 
+                *ngIf="!lName?.valid && lName?.touched" 
+                class="form-text custom-invalid-feedback">Field is can't be empty</small>
+                <small id="fnHelp" 
+                *ngIf="lName?.errors?.['minlength'] && lName?.touched" 
+                class="form-text custom-invalid-feedback">Middle Name requires atleast 3 characters.</small> 
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- seperator -->
+        <div class="row">
+          <div class="col">
+            <hr>
+          </div>
+        </div>
+
+        <!-- Mobile Number -->
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="fnText">Mobile Number</label>
+              <input type="tel" class="form-control" id="fnText" placeholder="Enter Mobile Number"
+              minlength="10" pattern="[7-9]{1}[0-9]{9}"
+                #mNumber="ngModel" [(ngModel)]="mobileNumber" [ngModelOptions]="{standalone: true}"
+                [ngClass]="{'form-control': true, 
+                'is-invalid': !mNumber?.valid && mNumber?.touched,
+                'is-valid': mNumber?.valid && mNumber?.touched}"               
+                required>
+                <!-- [(ngModel)]="customer.mobileNumber"  -->
+                <small id="fnHelp" 
+                *ngIf="!mNumber?.valid && mNumber?.touched" 
+                class="form-text custom-invalid-feedback">Field is can't be empty</small>
+                <small id="fnHelp" 
+                *ngIf="mNumber?.errors?.['minlength'] && mNumber?.touched" 
+                class="form-text custom-invalid-feedback">Mobile number should be 10 numbers.</small>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label for="fnText">Alternate Mobile Number</label>
+              <input type="tel" class="form-control" id="fnText" placeholder="Enter Alternate Mobile Number"
+               minlength="10" pattern="[7-9]{1}[0-9]{9}" 
+           
+               #aNumber="ngModel"  [(ngModel)]="alterNumber" [ngModelOptions]="{standalone: true}"
+                [ngClass]="{'form-control': true, 
+                'is-invalid': !aNumber?.valid && aNumber?.touched,
+                'is-valid': aNumber?.valid && aNumber?.touched}"               
+                required>
+                <!-- [(ngModel)]="customer.alterNumber"-->
+                <small id="fnHelp" 
+                *ngIf="!aNumber?.valid && aNumber?.touched" 
+                class="form-text custom-invalid-feedback">Field is can't be empty</small>
+                <small id="fnHelp" 
+                *ngIf="aNumber?.errors?.['minlength'] && aNumber?.touched" 
+                class="form-text custom-invalid-feedback">Mobile number should be 10 numbers.</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- seperator -->
+        <div class="row">
+          <div class="col">
+            <hr>
+          </div>
+        </div>
+
+        <!-- DOB and Email -->
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="fnText">Enter Date Of Birth</label>
+              <input type="date" class="form-control" id="fnText" placeholder="Enter Date Of Birth" 
+              #dob="ngModel"   [(ngModel)]="date" [ngModelOptions]="{standalone: true}"
+              [ngClass]="{'form-control': true, 
+              'is-invalid': !dob?.valid && dob?.touched,
+              'is-valid': dob?.valid && dob?.touched}"               
+              required>
+              <!-- [(ngModel)]="customer.date"  -->
+              <small id="fnHelp" 
+              *ngIf="!dob?.valid && dob?.touched" 
+              class="form-text custom-invalid-feedback">Field is can't be empty</small>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label for="fnText">Enter Email</label>
+              <input type="email" class="form-control" id="fnText" placeholder="Enter Email" 
+              pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+              #mail="ngModel"  [(ngModel)]="email" [ngModelOptions]="{standalone: true}"
+              [ngClass]="{'form-control': true, 
+              'is-invalid': !mail?.valid && mail?.touched,
+              'is-valid': mail?.valid && mail?.touched}"               
+              required>
+              <!-- [(ngModel)]="customer.email"   -->
+              <small id="fnHelp" 
+              *ngIf="!mail?.valid && mail?.touched" 
+              class="form-text custom-invalid-feedback">Field is can't be empty</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- seperator -->
+        <div class="row">
+          <div class="col">
+            <hr>
+          </div>
+        </div>
+
+
+
+        <!-- Aadhaar and PAN -->
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="fnText">Enter Aadhaar Number</label>
+              <input type="tel" class="form-control" id="fnText" placeholder="Enter Aadhaar Number " 
+            
+                #Aadhar="ngModel"  [(ngModel)]="aadhaar" [ngModelOptions]="{standalone: true}"
+                [ngClass]="{'form-control': true, 
+                'is-invalid': !Aadhar?.valid && Aadhar?.touched,
+                'is-valid': Aadhar?.valid && Aadhar?.touched}"               
+                required>
+                <!-- [(ngModel)]="customer.aadhaar"  -->
+                <small id="fnHelp" 
+                *ngIf="!Aadhar?.valid && Aadhar?.touched" 
+                class="form-text custom-invalid-feedback">Field is can't be empty</small>
+                <small id="fnHelp" 
+                *ngIf="Aadhar?.errors?.['minlength'] && Aadhar?.touched" 
+                class="form-text custom-invalid-feedback" >Aadhaar number should be 12 numbers.</small>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label for="fnText">Enter PAN Card Number</label>
+              <input type="text" class="form-control" id="fnText" placeholder="Enter  PAN Card Number" 
+               minlength="10" pattern="[A-Z]{4}[0-9]{5}[A-Z]{1}"
+                #Pan="ngModel" [(ngModel)]="pan" [ngModelOptions]="{standalone: true}"
+                [ngClass]="{'form-control': true, 
+                'is-invalid': !Pan?.valid && Pan?.touched,
+                'is-valid': Pan?.valid && Pan?.touched}"               
+                required>
+                <!-- [(ngModel)]="customer.pan"  -->
+                <small id="fnHelp" 
+                *ngIf="!Pan?.valid && Pan?.touched" 
+                class="form-text custom-invalid-feedback">Field is can't be empty</small>
+                <small id="fnHelp" 
+                *ngIf="Pan?.errors?.['minlength'] && Pan?.touched" 
+                class="form-text custom-invalid-feedback">PAN number should be 10 characters.</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- seperator -->
+        <div class="row">
+          <div class="col">
+            <hr>
+          </div>
+        </div>
+
+
+
+
+
+        <!--Married Status-->
+        <div class="row">
+          <div class="col-12">
+            <label for="" class="form-check-inline">Choose Type</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" id="inlineRadio1" 
+              value="Married" 
+              #marriedType="ngModel" [(ngModel)]="marriedStatus" [ngModelOptions]="{standalone: true}"
+                required
+                [ngClass]="{'form-control': true, 
+                'is-invalid': !marriedType?.valid && marriedType?.touched,
+                'is-valid': marriedType?.valid && marriedType?.touched}"   >
+              <!-- [(ngModel)]="customer.marriedStatus"  -->
+              <label class="form-check-label" for="inlineRadio1">Married</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" id="inlineRadio2"
+                value="Unmarried" [(ngModel)]="marriedStatus" [ngModelOptions]="{standalone: true}"
+                #marriedType="ngModel"
+                required
+                [ngClass]="{'form-control': true, 
+                'is-invalid': !marriedType?.valid && marriedType?.touched,
+                'is-valid': marriedType?.valid && marriedType?.touched}" >
+                <!-- [(ngModel)]="customer.marriedStatus" -->
+              <label class="form-check-label" for="inlineRadio2">Unmarried</label>
+            </div>
+            <small *ngIf="marriedType?.errors && marriedType?.touched"
+            class="form-check-inline form-text custom-invalid-feedback">Pick one option.</small>
+          </div>
+        </div>
+
+        <!-- seperator -->
+        <div class="row">
+          <div class="col">
+            <hr>
+          </div>
+        </div>
+
+        <!-- Occupation -->
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="occ">Occupation</label>
+              <select id="inputState" class="form-control" 
+                 required  
+                  #occ="ngModel"  [(ngModel)]="occupation" [ngModelOptions]="{standalone: true}"
+                  [ngClass]="{'form-control' : true,
+                  'is-invalid' : !occ?.valid && occ?.touched,
+                  'is-valid' : occ?.valid && occ?.touched}">
+                <!-- [(ngModel)]="customer.occupation"-->
+                <option selected value="">----Select a Occupation----</option>
+                <option value="Business">Business</option>
+                <option value="Developer">Developer</option>
+                <option value="Testing">Testing</option>
+                <option value="Oracle">Oracle</option>
+                <option value="Others">Others</option>
+
+              </select>
+              <small *ngIf="occ?.errors && occ?.touched" 
+                   class="form-text custom-invalid-feedback">Field is required</small>
+            </div>
+          </div>
+        </div>
+        <!-- seperator -->
+        <div class="row">
+          <div class="col">
+            <hr>
+          </div>
+        </div>
+
+        <!-- address form portion -->
+        <div class="row" ngModelGroup="address">
+          <div class="col-12">
+            <label for="" class="form-check-inline">Choose Type</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio"  id="inlineRadio1"
+                value="permanent"  #AddressType="ngModel"
+                required  [(ngModel)]="addressType" [ngModelOptions]="{standalone: true}"
+                [ngClass]="{'form-control': true, 
+                'is-invalid': !AddressType?.valid && AddressType?.touched,
+                'is-valid': AddressType?.valid && AddressType?.touched}" 
+                name="addressType"   id="inlineRadio1" value="Permanent">
+                <!-- [(ngModel)]="customer.addressType" -->
+              <label class="form-check-label" for="inlineRadio1">Permanent</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" id="inlineRadio2"
+              #AddressType="ngModel" required  [(ngModel)]="addressType" [ngModelOptions]="{standalone: true}"
+              [ngClass]="{'form-control': true, 
+              'is-invalid': !AddressType?.valid && AddressType?.touched,
+              'is-valid': AddressType?.valid && AddressType?.touched}" 
+              required
+              value="Correspondance" > 
+                <!-- [(ngModel)]="customer.addressType" [(ngModel)]="addressType" [ngModelOptions]="{standalone: true}"-->
+              <label class="form-check-label" for="inlineRadio2">Correspondance</label>
+            </div>
+            <small *ngIf="AddressType?.errors && AddressType?.touched"
+            class="form-check-inline form-text custom-invalid-feedback">Pick one option.</small>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label for="addText">Street Address</label>
+              <input type="text" class="form-control" id="addText"
+                placeholder="Enter street address"  
+                #StreetAddress="ngModel" 
+                required [(ngModel)]="streetAddress" [ngModelOptions]="{standalone: true}"
+                 [ngClass]="{'form-control' : true,
+                'is-invalid' : !StreetAddress?.valid && StreetAddress?.touched,
+                'is-valid' : StreetAddress?.valid && StreetAddress?.touched}"
+              > 
+                <!-- [(ngModel)]="customer.streetAddress"-->
+                <small  *ngIf="StreetAddress?.errors && StreetAddress?.touched"
+                class="form-text custom-invalid-feedback">Field is required</small>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input type="text" class="form-control" id="city"  placeholder="Enter city"
+                  required 
+                  #City="ngModel"  [(ngModel)]="city" [ngModelOptions]="{standalone: true}"
+                  [ngClass]="{'form-control' : true,
+                  'is-invalid' : !City?.valid && City?.touched,
+                  'is-valid' : City?.valid && City?.touched}"
+                   name="city" class="form-control" id="city" placeholder="Enter city">
+                   <!-- [(ngModel)]="customer.city"  -->
+                  <small *ngIf="City?.errors && City?.touched"
+                   class="form-text custom-invalid-feedback">Field is can't be empty.</small>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="state">State</label>
+                  <select id="inputState"
+                    required
+                  
+                  #State="ngModel" [(ngModel)]="state" [ngModelOptions]="{standalone: true}"
+                  [ngClass]="{'form-control' : true,
+                  'is-invalid' : !State?.valid && State?.touched,
+                  'is-valid' : State?.valid && State?.touched}">
+                     <!-- [(ngModel)]="customer.state"   -->
+                    <option selected value="">Choose...</option>
+                    <option *ngFor="let item of states" [value]="item">{{item}}</option>
+                  </select>
+                  <small *ngIf="State?.errors && State?.touched" 
+                  class="form-text custom-invalid-feedback">Field can't be empty.</small>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="zipcode">Zip Code</label>
+                  <input type="text" class="form-control" id="zipcode" placeholder="Enter city"
+                 
+                  #Zip="ngModel"   [(ngModel)]="zip" [ngModelOptions]="{standalone: true}"
+                [ngClass]="{'form-control': true, 
+                'is-invalid': !Zip?.valid && Zip?.touched,
+                'is-valid': Zip?.valid && Zip?.touched}"               
+                required> 
+          
+                <small id="fnHelp" 
+                *ngIf="!Zip?.valid && Zip?.touched" 
+                class="form-text custom-invalid-feedback">Field is can't be empty</small>
+                <small id="fnHelp" 
+                *ngIf="Zip?.errors?.['minlength'] && Zip?.touched" 
+                class="form-text custom-invalid-feedback">Zip Code Should have 6 Numbers.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- seperator -->
+        <div class="row">
+          <div class="col">
+            <hr>
+          </div>
+        </div>
+
+        <!-- final action buttons -->
+        <div class="row justify-content-center">
+          <div class="col-2">
+            <button type="submit" class="btn btn-primary" 
+            (click)="save()" >Submit</button>
+             <!--  -->
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+<div class="container mt-3" >
+  <h1>Customer Table</h1>
+<table class="table">
+  <thead>
+   <h1 *ngIf="!isResultLoaded">Loading.................</h1>
+  
+  <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Middle Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Mobile Number</th>
+      <th scope="col">Alternate Mobile Number</th>
+      <th scope="col">Date Of Birth</th>
+      <th scope="col">Email_id</th>
+      <th scope="col">Aadhaar Number</th>
+      <th scope="col">Pan Number</th>
+      <th scope="col">Married Status</th>
+      <th scope="col">Occupation</th>
+      <th scope="col">Address Type</th>
+      <th scope="col"> Street Address</th>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+      <th scope="col">Zip Code</th>
+      <th scope="col">Option</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let CustomerItem of CustomerArray">
+      <th scope="row">{{CustomerItem.c_id  }}</th>
+      <td>{{CustomerItem.firstName | uppercase}}</td>
+      <td>{{CustomerItem.middleName  | uppercase}}</td>
+      <td>{{CustomerItem.lastName  | uppercase}}</td>
+      <td>{{CustomerItem.mobileNumber }}</td>
+      <td>{{CustomerItem.alterNumber }}</td>
+      <td>{{CustomerItem.date | date }}</td>
+      <td>{{CustomerItem.email }}</td>
+      <td>{{CustomerItem.aadhaar }}</td>
+      <td>{{CustomerItem.pan }}</td>
+      <td>{{CustomerItem.marriedStatus }}</td>
+      <td>{{CustomerItem.occupation }}</td>
+      <td>{{CustomerItem.addressType }}</td>
+      <td>{{CustomerItem.streetAddress }}</td>
+      <td>{{CustomerItem.city }}</td>
+      <td>{{CustomerItem.state }}</td>
+      <td>{{CustomerItem.zip }}</td>
+      
+      
+      <td>
+        <button type="button" class="btn btn-success" (click)="setUpdate(CustomerItem)">Edit</button>
+        
+        <button type="button" class="btn btn-danger" (click)="setDelete(CustomerItem)">Delete</button>
+      
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+</div>
+<!-- <div class="container mt-4" >
+  <h1>Customer Table</h1>
+<table class="table">
+  <thead>
+   <h1 *ngIf="!isResultLoaded">Loading.................</h1>
+  
+  <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Middle Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Mobile Number</th>
+      <th scope="col">Alternate Mobile Number</th>
+      <th scope="col">Date Of Birth</th>
+      <th scope="col">Email_id</th>
+      <th scope="col">Aadhaar Number</th>
+      <th scope="col">Pan Number</th>
+      <th scope="col">Married Status</th>
+      <th scope="col">Occupation</th>
+      <th scope="col">Address Type</th>
+      <th scope="col"> Street Address</th>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+      <th scope="col">Zip Code</th>
+      <th scope="col">Option</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let CustomerItem of customers">
+      <th scope="row">{{CustomerItem.c_id  }}</th>
+      <td>{{CustomerItem.firstName }}</td>
+      <td>{{CustomerItem.middleName  }}</td>
+      <td>{{CustomerItem.lastName  }}</td>
+      <td>{{CustomerItem.mobileNumber }}</td>
+      <td>{{CustomerItem.alterNumber }}</td>
+      <td>{{CustomerItem.date }}</td>
+      <td>{{CustomerItem.email }}</td>
+      <td>{{CustomerItem.aadhaar }}</td>
+      <td>{{CustomerItem.pan }}</td>
+      <td>{{CustomerItem.marriedStatus }}</td>
+      <td>{{CustomerItem.occupation }}</td>
+      <td>{{CustomerItem.addressType }}</td>
+      <td>{{CustomerItem.streetAddress }}</td>
+      <td>{{CustomerItem.city }}</td>
+      <td>{{CustomerItem.state }}</td>
+      <td>{{CustomerItem.zip }}</td>
+      
+      
+      <td>
+        <button type="button" class="btn btn-success" (click)="setUpdate(CustomerItem)">Edit</button>
+        
+        <button type="button" class="btn btn-danger" (click)="setDelete(CustomerItem)">Delete</button>
+      
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+</div> -->

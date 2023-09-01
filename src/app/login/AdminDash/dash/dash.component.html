@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>DashBoard</title>
+  <!-- Material icons CDN -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+ 
+
+</head>
+
+<body>
+  <div class="container">
+    <aside>
+      <div class="top">
+        <div class="logo">
+          <img alt="" src="assets/cloverC.png">
+          <h2 class="danger">Clover Bank</h2>
+        </div>
+        <div class="close" id="close-btn">
+          <span class="material-icons-sharp">close</span>
+        </div>
+      </div>
+      <div class="sidebar">
+        <a href="#" class="active">
+          <span class="material-icons-sharp">grid_view</span>
+          <h3>Dashboard</h3>
+        </a>
+        <a (click)="onAddCust()">
+          <span class="material-icons-sharp">person_add</span>
+          <h3>Add Customer</h3>
+        </a>
+      
+        <a >
+          <span class="material-icons-sharp">view_compact</span>
+          <h3>View Customers</h3>
+        </a>
+      
+        <a href="#">
+          <span class="material-icons-sharp">view_list</span>
+          <h3>View Transactions</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">settings</span>
+          <h3>Settings</h3>
+        </a>
+          <a href="#">
+            <span class="material-icons-sharp">logout</span>
+            <h3>Logout</h3>
+          </a>
+      </div>
+    </aside>
+    <!------------------------------ END OF ASIDE ------------------------------------>
+    <main>
+      <h1>Dashboard</h1>
+      <div class="date">
+        <input type="date">
+      </div>
+      <div class="insights">
+        <div class="employee">
+          <span class="material-icons-sharp">groups</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Customers</h3>
+              <h1>5429</h1>
+            </div>
+          </div>
+          <small class="text-muted">Last 24 Hours</small>
+        </div>
+        <!-------------------------END OF EMPLOYEE----------------------------->
+        <div class="project">
+          <span class="material-icons-sharp">inventory </span>
+          <div class="middle">
+            <div class="left">
+              <h3>Stocks Holding</h3>
+              <h1>1745</h1>
+            </div>
+          </div>
+          <small class="text-muted">Last 24 Hours</small>
+        </div>
+        <!-------------------------END OF PROJECT----------------------------->
+        <div class="client">
+          <span class="material-icons-sharp">credit_score</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Loans Pending</h3>
+              <h1>3762</h1>
+            </div>
+          </div>
+          <small class="text-muted">Last 24 Hours</small>
+        </div>
+        <!-------------------------END OF CLIENTS----------------------------->
+      </div>
+      <!---------------------------END OF INSIGHTS------------------------------------------->
+      <div class="recent-activity">
+        <h2>Recent Activity</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Account Number</th>
+              <th>Customer Name</th>
+              <th>Loans</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CI13718</td>
+              <td>Pranav</td>
+              <td>Bike</td>
+              <td>Paid</td>
+            </tr>
+            <tr>
+              <td>CI13712</td>
+              <td>Mohsin</td>
+              <td>Home</td>
+              <td>Pending</td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="#">Show All</a>
+      </div>
+    </main>
+    <!--------------------------------END OF MAIN-------------------------------->
+    <div class="right">
+      <div class="top">
+        <button id="menu-btn">
+          <span class="material-icons-sharp">menu</span>
+        </button>
+        <div class="theme-toggler">
+          <span class="material-icons-sharp active">light_mode</span>
+          <span class="material-icons-sharp">dark_mode</span>
+        </div>
+        <div class="profile">
+          <div class="info">
+            <p>Hey,<b>Shweta</b></p>
+            <small class="text-muted">Admin</small>
+          </div>
+        </div>
+      </div>
+      <!-------------------------END OF TOP----------------------------------------->
+
+
+    <div class="recent-updates">
+    <h2>Recent Updates</h2>
+    <div class="updates">
+      <div class="update">
+        <div class="message">
+          <p><b>Mandar</b> and <b>Sammer</b> have Home loan.</p>
+          <small class="text-muted"> 2 Minutes Ago</small>
+        </div>
+      </div>
+      <div class="update">
+        <div class="message">
+          <p><b>Jitu</b> have Education loan.</p>
+          <small class="text-muted"> 2 Minutes Ago</small>
+        </div>
+      </div>
+      <div class="update">
+        <div class="message">
+          <p><b>Pranav </b> paid his Bike loan.</p>
+          <small class="text-muted"> 2 Minutes Ago</small>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!---------------------END OF RECENT UPDATES------------------------------------------------------>
+     <div class="projects">
+       <h2>Clover Stocks</h2>
+       <div class="item news">
+        <div class="icon">
+          <span class="material-icons-sharp">newspaper</span>
+        </div>
+        <div class="right">
+          <div class="info">
+            <h3>Tata Motors</h3>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+          <h5 class="success"> 78% </h5>
+        </div>
+       </div>
+       <div class="item interview">
+        <div class="icon">
+          <span class="material-icons-sharp">question_answer</span>
+        </div>
+        <div class="right">
+          <div class="info">
+            <h3>Adani Groups</h3>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+          <h5 style="color: #ff7782;"> 47% </h5>
+        </div>
+       </div>
+       <div class="item dash">
+        <div class="icon">
+          <span class="material-icons-sharp">dashboard_customize</span>  
+        </div>
+        <div class="right">
+          <div class="info">
+            <h3>TCS</h3>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+          <h5 class="success"> 95% </h5>
+        </div>
+       </div>
+       <div class=" item add-project">
+        <div>
+          <span class="material-icons-sharp">add</span>
+          <h3>Add Stocks</h3>  
+        </div>
+       </div>
+     </div>
+  </div>
+  </div>
+
+  <!-- <script src="Admindash.js"></script> -->
+
+</body>
+
+</html>
